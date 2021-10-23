@@ -1,9 +1,5 @@
-module.exports.validateRegisterInput = (
-    username,
-    email,
-    password,
-    confirmPassword
-) => {
+// module.exports.validateRegisterInput = function(username,email,password,confirmPassword) {
+module.exports.validateRegisterInput = (username,email,password,confirmPassword) => {
     const errors = {};
     if(username.trim() === '') {
         errors.username = 'Username must not be empty';
@@ -24,11 +20,14 @@ module.exports.validateRegisterInput = (
     }
 
     return {
+        //errors內容
         errors,
+        //errors這個物件內有任何一項錯誤的話
         valid:Object.keys(errors).length < 1
     };
 };
 
+//module.exports.validateLoginInput = function(username, password) {
 module.exports.validateLoginInput = (username, password) => {
     const errors = {};
     if(username.trim() === '') {
