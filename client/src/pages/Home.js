@@ -6,7 +6,7 @@ import PostCard from '../components/PostCard';
 
 function Home(){
     const { loading, data } = useQuery(FETCH_POSTS_QUERY);
-    console.log(data);
+    console.log(loading);
     return (
         <Grid columns={3}>
             <Grid.Row className="page-title">
@@ -18,6 +18,7 @@ function Home(){
                 ):(
                     data.getPosts && data.getPosts.map(post =>(
                         <Grid.Column key={post.id} style={{marginBottom: 20}}>
+                            {/* 將資料傳入 */}
                             <PostCard post={post}/>
                         </Grid.Column>  
                     ))
